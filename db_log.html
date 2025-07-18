@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Database Log</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="container">
+    <div class="card">
+        <h2>Database Log</h2>
+        <ul>
+            {% for file in files %}
+                <li>{{ file.filename }} - ID: {{ file.id }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

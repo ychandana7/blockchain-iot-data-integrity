@@ -1,0 +1,32 @@
+<!-- verify.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Verify Integrity</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="container">
+    <div class="card">
+        <h2>Verify File Integrity</h2>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="text" name="file_id" placeholder="Enter File ID" required>
+            <input type="file" name="file" required>
+            <button type="submit">Verify</button>
+        </form>
+        {% if verification_result is not none %}
+            <div class="result">
+                <p><strong>Status:</strong> {{ verification_result }}</p>
+                <p><strong>Generated Hash:</strong> {{ generated_hash }}</p>
+                <p><strong>Stored Hash:</strong> {{ stored_hash }}</p>
+                <!-- Pass the generated hash to localStorage -->
+                <script>
+                    const generatedHash = "{{ generated_hash }}";
+                    localStorage.setItem("verifiedFileHash", generatedHash);
+                    console.log("Generated hash saved to localStorage:", generatedHash);
+                </script>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

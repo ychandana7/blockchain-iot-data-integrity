@@ -1,0 +1,32 @@
+<!-- upload.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload File</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="container">
+    <div class="card">
+        <h2>Upload File</h2>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" required>
+            <button type="submit">Upload</button>
+        </form>
+
+        {% if message %}
+            <div class="message">{{ message }}</div>
+            {% if file_id %}
+                <p><strong>📁 File ID:</strong> {{ file_id }}</p>
+            {% endif %}
+            {% if file_hash %}
+                <p><strong>🔐 File Hash:</strong></p>
+                <span id="displayHash">{{ file_hash }}</span>
+            {% endif %}
+            <a href="{{ url_for('verify_file') }}" class="btn">Go to Verify Page</a>
+            <a href="{{ url_for('blockchain_log') }}" class="btn">View Blockchain Log</a>
+            <a href="{{ url_for('db_log') }}" class="btn">View Database Log</a>
+        {% endif %}
+    </div>
+</body>
+</html>
