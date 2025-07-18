@@ -1,4 +1,4 @@
-# blockchain-iot-data-integrity
+# Blockchain based Data Integrity Verification for IOT Communication
 Built a blockchain-based system to verify IoT file integrity using SHA-256 hashing and Ethereum smart contracts. Stored file hashes immutably on the blockchain to detect tampering. Developed with Flask, Solidity, Web3.js, MetaMask, and Ganache for secure verification.
 Project Title
 Blockchain-Based Data Integrity Verification for IoT Communication
